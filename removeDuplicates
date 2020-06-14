@@ -1,0 +1,25 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+     if (nums == null) {
+			return 0;
+		}
+
+		if (nums.length <= 2) {
+			return nums.length;
+		}
+		int x = 1; // point to previous
+		int y = 2; // point to current
+
+		while (y < nums.length) {
+			if (nums[y] == nums[x] && nums[y] == nums[x - 1]) {
+				y++;
+			} else {
+				x++;
+				nums[x] = nums[y];
+				y++;
+			}
+		}
+
+		return x + 1;
+    }
+}
